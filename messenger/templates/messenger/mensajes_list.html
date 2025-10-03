@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mensajes</title>
+</head>
+<body>
+    <h1>Lista de mensajes</h1>
+    <ul>
+        {% for mensaje in mensajes %}
+            <li>
+                <strong>{{ mensaje.quien_envia }}</strong> ➡️ <strong>{{ mensaje.quien_recibe }}</strong><br>
+                {{ mensaje.contenido|truncatechars:50 }} <br>
+                <em>{{ mensaje.date_time }}</em>
+            </li>
+            <hr>
+        {% empty %}
+            <li>No hay mensajes aún.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
